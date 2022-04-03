@@ -8,22 +8,34 @@
 
 class SplashScene extends Phaser.Scene{
   constructor (){
-    super('splashScene')
+    super({ key: 'splashScene'})
   }
-
-  init (data){
-    this.load.image('./Assets/logo.PNG')
+  
+  init (data){  
   }
 
   preload(){
-
+    this.load.image('splashSceneBackground', 'Assets/logo.PNG')
+    //this.load.audio('musicMenu', 'Assets/Sounds/alien.mp3')
     console.log('Splash Scene')
+
   }
 
   create (data){
+    this.splashSceneBackgroundImage = this.add.sprite(0,0, 'splashSceneBackground').setScale(2)
+    this.splashSceneBackgroundImage.x = 1920/2
+    this.splashSceneBackgroundImage.y = 1080/2
+    //musicMenu = this.sound.add('musicMenu')
+
   }
 
   update(time, delta){ 
+    if(time == 0){
+          musicMenu.play()
+    }
+    if(time >= 5000){
+          this.scene.switch('titleScene')
+    }
   }
  } 
 

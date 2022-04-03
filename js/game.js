@@ -10,11 +10,15 @@
 //paso 1 importamos escena
 import SplashScene from './splashScene.js'
 import TitleScene from './titleScene.js'
+import MenuScene from './menuScene.js'
+import GameScene from './gameScene.js'
 
 
 //paso 2 (Referencia) Escenas del juego
 const splashScene = new SplashScene()
 const titleScene = new TitleScene()
+const menuScene = new MenuScene()
+const gameScene = new GameScene()
 
 //* Game scene*/
 const config = {
@@ -28,7 +32,6 @@ const config = {
       debug: true
     }
   },
-
     scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
@@ -41,6 +44,8 @@ const game = new Phaser.Game(config)
 //paso 3 (agregar escena particular) Cargamos escena
 game.scene.add('splashScene' , splashScene)
 game.scene.add('titleScene' , titleScene)
+game.scene.add('menuScene' , menuScene)
+game.scene.add('gameScene' , gameScene)
 
 // start tittle
 game.scene.start('splashScene')
