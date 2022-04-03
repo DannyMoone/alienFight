@@ -7,9 +7,19 @@
 // This is Paser3 configuration file
 
 
+//paso 1 importamos escena
+import SplashScene from './splashScene.js'
+import TitleScene from './titleScene.js'
+
+
+//paso 2 (Referencia) Escenas del juego
+const splashScene = new SplashScene()
+const titleScene = new TitleScene()
+
 //* Game scene*/
 const config = {
   type: Phaser.AUTO, 
+  pixelArt: true,
   width: 1920,
   height: 1080,
   physics: {
@@ -19,12 +29,18 @@ const config = {
     }
   },
 
-  backgroundColor: 0x5f6e7a,
     scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
     }
-}
+};
 
 const game = new Phaser.Game(config)
-console.log(game)
+
+
+//paso 3 (agregar escena particular) Cargamos escena
+game.scene.add('splashScene' , splashScene)
+game.scene.add('titleScene' , titleScene)
+
+// start tittle
+game.scene.start('splashScene')
